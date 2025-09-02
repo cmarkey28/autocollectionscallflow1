@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Negotiation Adventure Tree</title>
@@ -12,12 +11,10 @@
       padding: 20px;
       background-color: #f9f9f9;
     }
-
     h1 {
       font-family: 'Montserrat', sans-serif;
       color: #2c3e50;
     }
-
     details {
       margin-bottom: 12px;
       border-left: 4px solid #3498db;
@@ -25,35 +22,29 @@
       background: #fff;
       padding: 10px;
       border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-
     summary {
       font-weight: bold;
       cursor: pointer;
       color: #2980b9;
     }
-
-    .response,
-    .action {
+    .response, .action {
       margin-left: 20px;
       color: #2c3e50;
       font-weight: 500;
     }
-
     .option {
       margin-left: 40px;
       font-style: italic;
       color: #7f8c8d;
     }
-
     .label {
       font-weight: bold;
       color: #8e44ad;
       margin-top: 8px;
       display: block;
     }
-
     .instructions {
       margin-bottom: 20px;
       padding: 15px;
@@ -61,9 +52,16 @@
       border-left: 5px solid #3498db;
       border-radius: 6px;
     }
+    .footer-blurb {
+      margin-top: 40px;
+      padding: 15px;
+      background-color: #fef8e7;
+      border-left: 5px solid #f39c12;
+      border-radius: 6px;
+      font-style: italic;
+    }
   </style>
 </head>
-
 <body>
   <h1>🧭 Negotiation Adventure Tree</h1>
 
@@ -75,63 +73,50 @@
   <details>
     <summary>🚀 Offer: Total Payment (Past Due + Upcoming)</summary>
     <span class="label">Agent Response:</span>
-    <div class="response">"How can we assist you in scheduling the total payment today? We can get that payment
-      scheduled today using the ACH banking account (or debit card where eligible) we have on file."</div>
+    <div class="response">"How can we assist you in scheduling the total payment today? We can get that payment scheduled today using the ACH banking account (or debit card where eligible) we have on file."</div>
     <span class="label">Agent Action:</span>
-    <div class="action">If the borrower agrees, proceed to schedule the payment. If the borrower declines, move to the
-      next set of rebuttal options.</div>
+    <div class="action">If the borrower agrees, proceed to schedule the payment. If the borrower declines, move to the next set of rebuttal options.</div>
+
     <details>
       <summary>💬 Borrower: "That’s too much. I can’t do all of that today."</summary>
       <span class="label">Rebuttal Option 1:</span>
-      <div class="option">"Totally understand—it’s a large amount, but paying the full past due and this month’s bill
-        today keeps your account current and prevents any repo review from starting. Will this Friday work for you?"
-      </div>
+      <div class="option">"Totally understand—it’s a large amount, but paying the full past due and this month’s bill today keeps your account current and prevents any repo review from starting. Will this Friday work for you?"</div>
       <span class="label">Rebuttal Option 2:</span>
-      <div class="option">"Just to be transparent, once the account hits 62 days past due, it’s eligible for
-        repossession. Getting both payments in now keeps you completely protected from that process."</div>
+      <div class="option">"Just to be transparent, once the account hits 62 days past due, it’s eligible for repossession. Getting both payments in now keeps you completely protected from that process."</div>
       <span class="label">Rebuttal Option 3:</span>
-      <div class="option">"We’ve helped others avoid repossession by handling this exact step. Let’s lock in the payment
-        now which will stop additional collection activities."</div>
+      <div class="option">"We’ve helped others avoid repossession by handling this exact step. Let’s lock in the payment now which will stop additional collection activities."</div>
     </details>
 
     <details>
-      <summary>🔁 Borrower Declines → Full Past Due Payment </summary>
+      <summary>🔁 Borrower Declines → Full Past Due Payment</summary>
       <span class="label">Agent Response:</span>
-      <div class="response">"We can assist you in scheduling the full past due amount, which will bring your account
-        current using ACH bank account on file (or debit card if eligible)."</div>
+      <div class="response">"We can assist you in scheduling the full past due amount, which will bring your account current using ACH bank account on file (or debit card if eligible)."</div>
       <span class="label">Agent Action:</span>
-      <div class="action">If the borrower agrees, proceed to schedule the payment. If not, continue with the rebuttal
-        options below.</div>
+      <div class="action">If the borrower agrees, proceed to schedule the payment. If not, continue with the rebuttal options below.</div>
+
       <details>
         <summary>💬 Borrower: "I don’t have that either."</summary>
         <span class="label">Rebuttal Option 1:</span>
-        <div class="option">"Even just bringing the past due balance current helps prevent further action—specifically,
-          it stops the system from moving to the Right to Cure stage which is when repossession activities can begin."
-        </div>
+        <div class="option">"Even just bringing the past due balance current helps prevent further action—specifically, it stops the system from moving to the Right to Cure stage which is when repossession activities can begin."</div>
         <span class="label">Rebuttal Option 2:</span>
-        <div class="option">"This is the amount that can still prevent your account from being flagged for recovery
-          review. Scheduling this payment now can give you peace of mind."</div>
+        <div class="option">"This is the amount that can still prevent your account from being flagged for recovery review. Scheduling this payment now can give you peace of mind."</div>
         <span class="label">Rebuttal Option 3:</span>
-        <div class="option">"Let’s take care of it today. This is really the last clean stop before final repo steps
-          begin."</div>
+        <div class="option">"Let’s take care of it today. This is really the last clean stop before final repo steps begin."</div>
       </details>
 
       <details>
         <summary>🔁 Borrower Declines → Minimum Monthly Payment</summary>
         <span class="label">Agent Response:</span>
-        <div class="response">"We can assist you in scheduling the minimum monthly payment amount with the ACH banking
-          (or debit card if eligible) on file."</div>
+        <div class="response">"We can assist you in scheduling the minimum monthly payment amount with the ACH banking (or debit card if eligible) on file."</div>
         <span class="label">Agent Action:</span>
-        <div class="action">If the borrower agrees, schedule the payment. If not, proceed with the next payment option
-          below.</div>
+        <div class="action">If the borrower agrees, schedule the payment. If not, proceed with the next payment option below.</div>
+
         <details>
           <summary>💬 Borrower: "I can only do part of the minimum."</summary>
           <span class="label">Rebuttal Option 1:</span>
-          <div class="option">"I’ll apply that now—it won’t bring you fully current, but it helps show intent and can
-            delay the account from advancing toward the 62-day Right to Cure stage."</div>
+          <div class="option">"I’ll apply that now—it won’t bring you fully current, but it helps show intent and can delay the account from advancing toward the 62-day Right to Cure stage."</div>
           <span class="label">Rebuttal Option 2:</span>
-          <div class="option">"It may not fully stop repo eligibility, but it buys us some time before vendor assignment
-            occurs around day 72. Let’s schedule that partial today."</div>
+          <div class="option">"It may not fully stop repo eligibility, but it buys us some time before vendor assignment occurs around day 72. Let’s schedule that partial today."</div>
           <span class="label">Rebuttal Option 3:</span>
           <div class="option">"I’ll take what you can do and get it noted before any further steps are taken."</div>
         </details>
@@ -139,47 +124,38 @@
         <details>
           <summary>🔁 Borrower Declines → Stabilization Payment</summary>
           <span class="label">Agent Response:</span>
-          <div class="response">"We can schedule a stabilization payment in the amount that is manageable for you
-            today."</div>
+          <div class="response">"We can schedule a stabilization payment in the amount that is manageable for you today."</div>
           <span class="label">Agent Action:</span>
-          <div class="action">If the borrower agrees, schedule the payment. If not, present the next available option or
-            hardship referral.</div>
+          <div class="action">If the borrower agrees, schedule the payment. If not, present the next available option or hardship referral.</div>
+
           <details>
             <summary>💬 Borrower: "I can do something small, but it won’t make a dent."</summary>
             <span class="label">Rebuttal Option 1:</span>
-            <div class="option">"Keep in mind, stabilization payment will help with the past due but may not prevent
-              repossession."</div>
+            <div class="option">"Keep in mind, stabilization payment will help with the past due but may not prevent repossession."</div>
             <span class="label">Rebuttal Option 2:</span>
-            <div class="option">"If car is repossessed, it can only be returned if you pay the full past due balance
-              plus any repo-related fees."</div>
+            <div class="option">"If car is repossessed, it can only be returned if you pay the full past due balance plus any repo-related fees."</div>
             <span class="label">Rebuttal Option 3:</span>
-            <div class="option">"Redemption is still possible—but only if we move fast. Let’s reconsider paying the full
-              balance now and talk through your next steps."</div>
+            <div class="option">"Redemption is still possible—but only if we move fast. Let’s reconsider paying the full balance now and talk through your next steps."</div>
           </details>
 
           <details>
             <summary>🔁 Borrower Declines → Hardship/Settlement</summary>
             <span class="label">Agent Response:</span>
-            <div class="response">"We do have hardship relief program. Would you like to hear about these options?"
-            </div>
+            <div class="response">"We do have a hardship relief program. Would you like to hear about these options?"</div>
             <span class="label">Agent Action:</span>
-            <div class="action">Ask probing questions to understand their situation and overcome objections. Examples:
-              “How are you handling your other bills?” and “What has changed since your last payment?”</div>
+            <div class="action">Ask probing questions to understand their situation and overcome objections. Examples: “How are you handling your other bills?” and “What has changed since your last payment?”</div>
+
             <details>
               <summary>💬 Borrower: "I can’t pay anything right now."</summary>
               <span class="label">Rebuttal Option 1:</span>
-              <div class="option">"I hear you. If no payment is received, your account may enter repo assignment shortly
-                after day 72. We still have time to flag your account for hardship review if we act today."</div>
+              <div class="option">"I hear you. If no payment is received, your account may enter repo assignment shortly after day 72. We still have time to flag your account for hardship review if we act today."</div>
               <span class="label">Rebuttal Option 2:</span>
-              <div class="option">"At this point, the only way to keep your vehicle from being assigned for recovery is
-                either payment or hardship. We're in the critical window before vendor assignment. By starting hardship
-                today, we’re at least showing Upstart that action is in progress."</div>
+              <div class="option">"At this point, the only way to keep your vehicle from being assigned for recovery is either payment or hardship. We're in the critical window before vendor assignment. By starting hardship today, we’re at least showing Upstart that action is in progress."</div>
               <span class="label">Agent Action:</span>
-              <div class="action">Provide hardship scripting and assist the borrower in applying or transfer them to the
-                appropriate hardship/settlement team.</div>
+              <div class="action">Provide hardship scripting and assist the borrower in applying or transfer them to the appropriate hardship/settlement team.</div>
             </details>
-          </details>
 
+          </details>
         </details>
       </details>
     </details>
@@ -188,10 +164,12 @@
   <details>
     <summary>✅ Commitment from the Borrower</summary>
     <span class="label">Agent Action:</span>
-    <div class="response">If the borrower agrees to pay, proceed to schedule the payment over the phone using a check or
-      debit card. Confirm: “To move forward with scheduling your payment, I just need to confirm—are the funds available
-      in your bank account today?”</div>
+    <div class="response">If the borrower agrees to pay, proceed to schedule the payment over the phone using a check or debit card. Confirm: “To move forward with scheduling your payment, I just need to confirm—are the funds available in your bank account today?”</div>
   </details>
-</body>
 
+  <div class="footer-blurb">
+    💬 <strong>Reminder for Agents:</strong><br>
+    Don’t hesitate to ask probing questions to understand your borrower’s situation and show empathy. Questions like “How are you handling your other bills?” or “What’s changed since your last payment?” can surface useful insights that help you determine the best path forward.
+  </div>
+</body>
 </html>
