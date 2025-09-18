@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Willing Borrower • 60 or Fewer Days Past Due • Call Flow</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Lato:wght@400;600&display=swap"
-    rel="stylesheet" />
+  <title>Willing Borrower • 60 or Fewer Days Past Due • Call Flow (Revised)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Lato:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --ink: #23303a;
@@ -20,187 +19,56 @@
       --shadow: 0 6px 18px rgba(0, 0, 0, .06)
     }
 
-    * {
-      box-sizing: border-box
-    }
+    * { box-sizing: border-box }
 
-    body {
-      font-family: 'Lato', sans-serif;
-      line-height: 1.55;
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink)
-    }
+    body { font-family: 'Lato', sans-serif; line-height: 1.55; margin: 0; background: var(--bg); color: var(--ink) }
 
-    header {
-      padding: 28px 20px 8px
-    }
+    header { padding: 28px 20px 8px }
 
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0 0 10px;
-      font-size: 24px;
-      color: var(--ink)
-    }
+    h1 { font-family: 'Montserrat', sans-serif; margin: 0 0 10px; font-size: 24px; color: var(--ink) }
 
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 20px 44px
-    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 44px }
 
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      margin: 14px 0
-    }
+    .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; margin: 14px 0 }
 
-    .instructions {
-      background: #eaf5ff;
-      border-left: 6px solid var(--accent)
-    }
+    .instructions { background: #eaf5ff; border-left: 6px solid var(--accent) }
 
-    /* Collapsibles */
-    details {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin: 12px 0;
-      overflow: hidden
-    }
+    details { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); margin: 12px 0; overflow: hidden }
+    summary { padding: 14px 16px; font-weight: 700; cursor: pointer; color: var(--ink) }
+    .sect { padding: 0 16px 16px }
 
-    summary {
-      padding: 14px 16px;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--ink)
-    }
+    .badge { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #e8f4fd; color: #1667b1; margin-left: 8px }
 
-    .sect {
-      padding: 0 16px 16px
-    }
+    .row { display: grid; grid-template-columns: 1fr; gap: 12px }
+    .row>div { background: #f3f7fb; border-radius: 10px; padding: 10px }
+    .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em }
+    .agent { font-weight: 600 }
+    .borrower { font-style: italic }
+    .note { font-size: 13px; color: var(--muted) }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px }
 
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #e8f4fd;
-      color: #1667b1;
-      margin-left: 8px
-    }
+    input { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #d9e3ec; background: #fff; font: inherit }
 
-    /* Layout + UI */
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px
-    }
+    .btn { appearance: none; border: 0; border-radius: 10px; padding: 10px 14px; font-weight: 700; background: var(--accent); color: #fff; cursor: pointer }
+    .btn.secondary { background: #e9eff7; color: #1b3b55 }
 
-    .row>div {
-      background: #f3f7fb;
-      border-radius: 10px;
-      padding: 10px
-    }
+    .callout { border-left: 5px solid var(--accent); background: #eaf5ff; padding: 12px 14px; border-radius: 10px; margin: 10px 0 }
+    .warn { border-left: 5px solid var(--warn); background: #fff6e6 }
+    .ok { border-left: 5px solid var(--ok); background: #eafaf0 }
 
-    .label {
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em
-    }
+    .coach { border-left: 8px solid var(--accent); padding: 22px }
+    .coach h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; margin: 0 0 8px; color: var(--ink) }
+    .coach li { font-size: 18px; line-height: 1.4; margin: 8px 0 }
 
-    .agent {
-      font-weight: 600
-    }
+    .simple-steps { margin: 10px 0 0 18px }
+    .simple-steps li { margin: 6px 0 }
 
-    .borrower {
-      font-style: italic
-    }
+    .banner { font-weight: 800; font-size: 24px }
+    .center-actions { display: flex; gap: 8px; justify-content: center; margin-top: 12px }
 
-    .note {
-      font-size: 13px;
-      color: var(--muted)
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #d9e3ec;
-      background: #fff;
-      font: inherit
-    }
-
-    .btn {
-      appearance: none;
-      border: 0;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-weight: 700;
-      background: var(--accent);
-      color: #fff;
-      cursor: pointer
-    }
-
-    .btn.secondary {
-      background: #e9eff7;
-      color: #1b3b55
-    }
-
-    .callout {
-      border-left: 5px solid var(--accent);
-      background: #eaf5ff;
-      padding: 12px 14px;
-      border-radius: 10px;
-      margin: 10px 0
-    }
-
-    .warn {
-      border-left: 5px solid var(--warn);
-      background: #fff6e6
-    }
-
-    .ok {
-      border-left: 5px solid var(--ok);
-      background: #eafaf0
-    }
-
-    /* Coaching tips bigger & obvious */
-    .coach {
-      border-left: 8px solid var(--accent);
-      padding: 22px
-    }
-
-    .coach h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      margin: 0 0 8px;
-      color: var(--ink)
-    }
-
-    .coach li {
-      font-size: 18px;
-      line-height: 1.4;
-      margin: 8px 0
-    }
-
-    /* Simple numbered usage */
-    .simple-steps {
-      margin: 10px 0 0 18px
-    }
-
-    .simple-steps li {
-      margin: 6px 0
-    }
+    #progress-fill { background: var(--accent) }
+    .badge.good { background:#eafaf0; color:#1c7c43 }
+    .badge.warn { background:#fff6e6; color:#9a6208 }
   </style>
 </head>
 
@@ -208,14 +76,12 @@
   <header class="wrap">
     <h1>🧭 Willing Borrower – 60 or Fewer Days Past Due</h1>
     <div class="card instructions">
-      <p>This mock auto collections call flow involves a willing borrower who is 60 or fewer days past due. The
-        interactive features allow you to plug in different amounts to simulate a real borrower interaction.</p>
+      <p>This mock auto collections call flow involves a willing borrower who is 60 or fewer days past due. The interactive features allow you to plug in different amounts to simulate a real borrower interaction.</p>
       <p><strong>How to use this call flow:</strong></p>
       <ol class="simple-steps">
         <li>Enter <strong>Days Past Due</strong> and dollar amounts in <em>Quick Fill</em>.</li>
         <li>Click <strong>Apply</strong> to insert those values into the script below.</li>
-        <li>Open each step and read the <strong>Agent</strong> lines as written. Choose the sub‑branch that matches the
-          borrower’s reply.</li>
+        <li>Open each step and read the <strong>Agent</strong> lines as written. Choose the sub‑branch that matches the borrower’s reply.</li>
         <li>Once you have a commitment, schedule the payment and document the plan.</li>
       </ol>
     </div>
@@ -237,18 +103,7 @@
             <label>Follow‑up Day<input id="v-day" type="text" placeholder="e.g., Friday" /></label>
             <label>Agent Name (optional)<input id="v-agent" type="text" placeholder="e.g., Alex" /></label>
           </div>
-        </div>
-        <div>
-          <div class="label">Apply values</div>
-          <p><strong>How to use this call flow:</strong></p>
-          <ol class="simple-steps">
-            <li>Fill in the fields on the left.</li>
-            <li>Click <strong>Apply</strong>. The values you enter will automatically appear throughout the script
-              below.</li>
-            <li>Use <strong>Reset</strong> anytime to clear the fields and start over.</li>
-            <li>Follow the steps to practice a realistic borrower conversation.</li>
-          </ol>
-          <div style="margin-top:10px;display:flex;gap:8px">
+          <div class="center-actions">
             <button class="btn" id="apply">Apply</button>
             <button class="btn secondary" id="reset">Reset</button>
           </div>
@@ -256,38 +111,50 @@
       </div>
     </div>
 
+    <!-- Status Card -->
+    <div class="card" id="status-card">
+      <div class="label">Account Status (Preview)</div>
+      <p style="margin:8px 0">
+        Current: <strong><span data-token="DPD">0</span> DPD</strong> →
+        After Payment: <strong><span data-token="DPD_AFTER">0</span> DPD</strong>
+      </p>
+      <div id="status-badge" class="badge">Projected: On Track</div>
+      <div style="height:10px;border-radius:999px;background:#e9eff7;margin-top:10px;overflow:hidden">
+        <div id="progress-fill" style="height:100%;width:0%"></div>
+      </div>
+      <p class="note" id="status-note" style="margin-top:8px"></p>
+    </div>
+
+    <!-- Blue Panel: Account Review -->
+    <div class="card instructions"><strong class="banner">Account Review</strong></div>
+
     <!-- Step 1: Open & State Facts -->
     <details open>
       <summary>1) Open, confirm facts, propose resolution <span class="badge">Start here</span></summary>
       <div class="sect">
-        <div class="agent">"I see you’re <span data-token="DPD">XX</span> days past due with a total amount due of
-          $<span data-token="TOTAL">XX</span>. Let’s set that up today to resolve your past‑due balance."</div>
-        <div class="callout ok" style="margin-top:10px"><strong>Goal:</strong> Establish facts and move directly to a
-          concrete payment option.</div>
+        <div class="agent">"I see you’re <span data-token="DPD">XX</span> days past due with a total amount due of $<span data-token="TOTAL">XX</span>. Let’s set that up today to resolve your past‑due balance."</div>
+        <div class="callout ok" style="margin-top:10px"><strong>Goal:</strong> Establish facts and move directly to a concrete payment option.</div>
       </div>
     </details>
 
-    <!-- Branch A: Borrower can make one regular payment now -->
-    <details>
+    <!-- Negotiation Panel -->
+    <div id="negotiation-banner" class="card instructions"><strong class="banner">Negotiation</strong></div>
+    <details id="negotiation-details">
       <summary>2) Borrower: “I can make one regular payment of $<span data-token="FIRST">500</span>.”</summary>
       <div class="sect">
-        <div class="agent">"That’s great, that $<span data-token="FIRST">500</span> will reduce your past‑due balance to
-          $<span data-token="REMAIN">300</span> and bring you to <span data-token="DPD">16</span> days past due. When
-          can you pay again to clear the rest?"</div>
+        <div class="agent">"That’s great, that $<span data-token="FIRST">500</span> will reduce your past‑due balance to $<span data-token="REMAIN">300</span> and bring you to <span data-token="DPD_AFTER">16</span> days past due. When can you pay again to clear the rest?"</div>
 
         <details>
           <summary>Borrower: “I’m just trying to keep up with my regular monthly payments for now.”</summary>
           <div class="sect">
-            <div class="agent">"Totally understand. I’d like to tailor a plan to get you back on track. If you don’t
-              mind me asking, what caused you to fall behind?"</div>
+            <div class="agent">"Totally understand. I’d like to tailor a plan to get you back on track. If you don’t mind me asking, what caused you to fall behind?"</div>
           </div>
         </details>
 
         <details>
           <summary>Borrower: “I lost my job.”</summary>
           <div class="sect">
-            <div class="agent">"Thanks for sharing—many customers have been in the same situation. Are you currently
-              back to work?"</div>
+            <div class="agent">"Thanks for sharing—many customers have been in the same situation. Are you currently back to work?"</div>
 
             <details>
               <summary>Borrower: “No, I’m still looking.”</summary>
@@ -297,37 +164,26 @@
                 <details>
                   <summary>Borrower: “Yes, I receive unemployment income.”</summary>
                   <div class="sect">
-                    <div class="agent">"I’d like to map a path to get you back on track. When do you receive
-                      unemployment and about how much?"</div>
+                    <div class="agent">"I’d like to map a path to get you back on track. When do you receive unemployment and about how much?"</div>
 
                     <details>
                       <summary>Borrower: “$500 weekly on Friday.”</summary>
                       <div class="sect">
-                        <div class="agent">"Great—today is Tuesday, and you’re paid again on
-                          <span data-token="DAY">Friday</span>, right?"</div>
+                        <div class="agent">"Great—today is Tuesday, and you’re paid again on <span data-token="DAY">Friday</span>, right?"</div>
                         <div class="borrower">“Yes, that’s correct.”</div>
-                        <div class="agent">"Let’s schedule the remaining $<span data-token="REMAIN">300</span> for
-                          <span data-token="DAY">Friday</span> to bring you current."</div>
+                        <div class="agent">"Let’s schedule the remaining $<span data-token="REMAIN">300</span> for <span data-token="DAY">Friday</span> to bring you current."</div>
 
                         <details>
-                          <summary>Borrower: “I can’t pay Friday—this $<span data-token="FIRST">500</span> is stretching
-                            me.”</summary>
+                          <summary>Borrower: “I can’t pay Friday—this $<span data-token="FIRST">500</span> is stretching me.”</summary>
                           <div class="sect">
-                            <div class="agent">"I understand. Do you have any other sources of income or household
-                              income?"</div>
+                            <div class="agent">"I understand. Do you have any other sources of income or household income?"</div>
 
                             <details>
                               <summary>Borrower: “No, it’s just me.”</summary>
                               <div class="sect">
-                                <div class="agent">"Thanks for letting me know. Could you pay the
-                                  $<span data-token="REMAIN">300</span> the <em>following</em>
-                                  <span data-token="DAY">Friday</span>? At that point you’ll be around
-                                  <span data-token="DPD">25</span> days past due with another payment coming due."</div>
-                                <div class="borrower">“Yes, I can make the $<span data-token="REMAIN">300</span> next
-                                  Friday.”</div>
-                                <div class="callout ok"><strong>Agent Action:</strong> "Perfect—let’s get that scheduled
-                                  now so you don’t have to worry about calling in or going online later." Proceed to
-                                  commitment and scheduling.</div>
+                                <div class="agent">"Thanks for letting me know. Could you pay the $<span data-token="REMAIN">300</span> the <em>following</em> <span data-token="DAY">Friday</span>? At that point you’ll be around <span data-token="DPD_AFTER">25</span> days past due with another payment coming due."</div>
+                                <div class="borrower">“Yes, I can make the $<span data-token="REMAIN">300</span> next Friday.”</div>
+                                <div class="callout ok"><strong>Agent Action:</strong> "Perfect—let’s get that scheduled now so you don’t have to worry about calling in or going online later." Proceed to commitment and scheduling.</div>
                               </div>
                             </details>
                           </div>
@@ -343,15 +199,15 @@
       </div>
     </details>
 
+    <!-- Blue Panel: Resolution -->
+    <div class="card instructions"><strong class="banner">Resolution</strong></div>
+
     <!-- Commitment & Close -->
     <details>
       <summary>3) Secure commitment and schedule</summary>
       <div class="sect">
-        <div class="callout ok"><strong>Agent Action:</strong> "To move forward with scheduling your payment, I just
-          need to confirm—are the funds available in your bank account today?" Schedule via ACH (or debit card where
-          eligible). Confirm date, amount, and receipt.</div>
-        <div class="callout warn"><strong>Remember:</strong> Stay empathetic; mirror language, summarize the plan, and
-          document notes clearly.</div>
+        <div class="callout ok"><strong>Agent Action:</strong> "To move forward with scheduling your payment, I just need to confirm—are the funds available in your bank account today?" Schedule via ACH (or debit card where eligible). Confirm date, amount, and receipt.</div>
+        <div class="callout warn"><strong>Remember:</strong> Stay empathetic; mirror language, summarize the plan, and document notes clearly.</div>
       </div>
     </details>
 
@@ -361,8 +217,7 @@
         <ul>
           <li>Keep momentum: move from facts → immediate partial → a clear follow‑up date.</li>
           <li>Ask short, purposeful questions; avoid stacking multiple questions at once.</li>
-          <li>Always restate amount, date, and outcome (for example, the new number of days past due) before scheduling.
-          </li>
+          <li>Always restate amount, date, and outcome (for example, the new number of days past due) before scheduling.</li>
         </ul>
       </div>
     </footer>
@@ -375,30 +230,71 @@
         TOTAL: document.querySelectorAll('[data-token="TOTAL"]'),
         FIRST: document.querySelectorAll('[data-token="FIRST"]'),
         REMAIN: document.querySelectorAll('[data-token="REMAIN"]'),
-        DAY: document.querySelectorAll('[data-token="DAY"]')
+        DAY: document.querySelectorAll('[data-token="DAY"]'),
+        DPD_AFTER: document.querySelectorAll('[data-token="DPD_AFTER"]')
       };
+
       function getVal(id, fallback){
         const node = document.getElementById(id);
         if(!node) return fallback;
         const v = (node.value||'').trim();
         return v!=='' ? v : fallback;
       }
+      function toNum(v){ const n = Number(v); return Number.isFinite(n) ? n : 0; }
+
       function apply(){
-        const dpd = getVal('v-dpd','XX');
-        const total = getVal('v-total','XX');
-        const first = getVal('v-first','500');
-        const remain = getVal('v-remaining','300');
+        const dpd0 = Math.max(0, Math.floor(toNum(getVal('v-dpd','0'))));
+        const totalN = Math.max(0, toNum(getVal('v-total','0')));
+        const firstN = Math.max(0, toNum(getVal('v-first','0')));
+        const remainInput = getVal('v-remaining','');
+        const remainN = remainInput !== '' ? Math.max(0, toNum(remainInput)) : Math.max(0, totalN - firstN);
         const day = getVal('v-day','Friday');
-        map.DPD.forEach(el=>el.textContent = dpd);
-        map.TOTAL.forEach(el=>el.textContent = total);
-        map.FIRST.forEach(el=>el.textContent = first);
-        map.REMAIN.forEach(el=>el.textContent = remain);
+
+        const denom = Math.max(1, totalN);
+        const dpdAfter = Math.max(0, Math.round(dpd0 * (remainN / denom)));
+
+        map.DPD.forEach(el=>el.textContent = dpd0.toString());
+        map.TOTAL.forEach(el=>el.textContent = totalN.toString());
+        map.FIRST.forEach(el=>el.textContent = firstN.toString());
+        map.REMAIN.forEach(el=>el.textContent = remainN.toString());
         map.DAY.forEach(el=>el.textContent = day);
+        map.DPD_AFTER.forEach(el=>el.textContent = dpdAfter.toString());
+
+        // Status card
+        const pctResolved = totalN ? Math.min(100, Math.round(((totalN - remainN) / totalN) * 100)) : 0;
+        const fill = document.getElementById('progress-fill');
+        if (fill) fill.style.width = pctResolved + '%';
+        const badge = document.getElementById('status-badge');
+        const note  = document.getElementById('status-note');
+        if (badge) {
+          badge.classList.remove('good','warn');
+          if (remainN <= 0) { badge.textContent = 'Projected: Current'; badge.classList.add('good'); }
+          else if (dpdAfter < dpd0) { badge.textContent = 'Projected: Closer to Current'; badge.classList.add('good'); }
+          else { badge.textContent = 'No Improvement'; badge.classList.add('warn'); }
+        }
+        if (note) {
+          note.textContent = remainN <= 0
+            ? 'Past-due satisfied by this payment.'
+            : `Past-due remaining after payment: $${remainN.toFixed(2)} (${pctResolved}% resolved).`;
+        }
+
+        // Hide negotiation section entirely if past-due is fully satisfied
+        const negBanner = document.getElementById('negotiation-banner');
+        const negDetails = document.getElementById('negotiation-details');
+        const hideNegotiation = (remainN <= 0);
+        if (negBanner)  negBanner.style.display  = hideNegotiation ? 'none' : '';
+        if (negDetails) negDetails.style.display = hideNegotiation ? 'none' : '';
+
+        // Ensure "Borrower: I lost my job." is not auto-opened by default
+        const summaries = Array.from(document.querySelectorAll('summary'));
+        const lostJob = summaries.find(s => (s.textContent||'').trim().startsWith('Borrower: “I lost my job.”'));
+        if (lostJob) { const d = lostJob.closest('details'); if (d) d.removeAttribute('open'); }
       }
+
       const applyBtn = document.getElementById('apply');
       const resetBtn = document.getElementById('reset');
-      if(applyBtn) applyBtn.addEventListener('click', apply);
-      if(resetBtn) resetBtn.addEventListener('click', function(){
+      if (applyBtn) applyBtn.addEventListener('click', apply);
+      if (resetBtn) resetBtn.addEventListener('click', function(){
         ['v-dpd','v-total','v-first','v-remaining','v-day','v-agent'].forEach(function(id){
           const n = document.getElementById(id); if(n) n.value='';
         });
@@ -407,6 +303,3 @@
       apply();
     })();
   </script>
-</body>
-
-</html>
